@@ -1,0 +1,15 @@
+{% extends 'default.html' %}
+{% block contenido %}
+
+<form action="{% url 'editar' redimer.id %}" method="POST">
+    {% csrf_token %}
+    <label style="display: block;">
+        Titulo <input name="reminder" value="{{ reminder.content }}" required minlength="3" maxlength="130">
+    </label>
+    <label style="display: block;">
+        Importante <input name="importante" type="checkbox" {% if reminder.important %} checked {% endif %}>
+    </label>
+    <button type="submit">Guardar</button>
+</form>
+
+{% endblock%}

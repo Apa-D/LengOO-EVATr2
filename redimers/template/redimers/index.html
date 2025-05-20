@@ -1,0 +1,24 @@
+{% extends 'default.html' %}
+{% block contenido %}
+
+<form action="{% url 'index' %}" method="POST">
+    {% csrf_token %}
+    <label style="display: block;">
+        Titulo <input name="reminder" required minlength="3" maxlength="120" >
+    </label>
+    <label style="display: block;">
+        Importante <input name="importante" type="checkbox" >
+    </label>
+    <button type="submit">Guardar</button>
+</form>
+{% if redimers %}
+    <ul>
+    {% for redimer in redimers %}
+        <li><a href="{% url 'editar' redimer.id %}">{{ redimer.content }} - {{ redimer.createdAt }} - {{ redimer.important }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay recordatorios </p>
+{% endif %}
+
+{% endblock%}

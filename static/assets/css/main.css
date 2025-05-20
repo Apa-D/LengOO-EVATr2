@@ -1,0 +1,11 @@
+form {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid;
+    margin-bottom: 12px;
+}
+
+form button{
+    border: 1px solid  lightgray;
+    border-radius: 8px;
+}
